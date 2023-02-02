@@ -21,7 +21,9 @@ const HeroBanner = () => {
   }
 
   const searchButtonHandler = () => {
-    navigate(`/search/${query}`)
+    if (query.length > 0) { 
+      navigate(`/search/${query}`)
+    }
   }
 
   useEffect(() => {
