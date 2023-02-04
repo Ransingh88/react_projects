@@ -55,7 +55,7 @@ const Carousel = ({ data, loading, mediaType }) => {
           className="arrow carouselRighttNav"
           onClick={() => navigation("right")}
         />
-        {loading ? (
+        {!loading ? (
           <div ref={carouselContainer} className="carouselItems">
             {data?.map((item) => {
               const posterUrl = item.poster_path
