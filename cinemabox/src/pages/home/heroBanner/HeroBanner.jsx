@@ -9,7 +9,7 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper"
 const HeroBanner = () => {
   const [background, setBackground] = useState("")
   const [query, setQuery] = useState("")
-  const { data, loading, error } = useFetch("/movie/upcoming")
+  const { data, loading } = useFetch("/movie/upcoming")
   const { url } = useSelector((state) => state.home)
 
   const navigate = useNavigate()
@@ -21,7 +21,7 @@ const HeroBanner = () => {
   }
 
   const searchButtonHandler = () => {
-    if (query.length > 0) { 
+    if (query.length > 0) {
       navigate(`/search/${query}`)
     }
   }
