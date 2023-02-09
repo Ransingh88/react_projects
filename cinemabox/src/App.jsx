@@ -5,6 +5,7 @@ import { fetchDataFromApi } from "./utils/service"
 import {
   getApiConfigurations,
   getGenres,
+  getLanguages,
 } from "./store/features/home/homeSlice"
 
 import Header from "./components/header/Header"
@@ -16,12 +17,14 @@ function App() {
 
   const fetchApiConfig = async () => {
     const data = await fetchDataFromApi("/configuration")
+    const dataLanguage = await fetchDataFromApi("/configuration/languages")
     const url = {
       backdrop: `${data.images.secure_base_url}original`,
       poster: `${data.images.secure_base_url}original`,
       profile: `${data.images.secure_base_url}original`,
     }
     dispatch(getApiConfigurations(url))
+    dispatch(getLanguages(dataLanguage))
   }
 
   const mapGenresData = async () => {

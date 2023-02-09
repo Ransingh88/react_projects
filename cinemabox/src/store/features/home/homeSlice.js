@@ -2,7 +2,8 @@ import {createSlice} from '@reduxjs/toolkit'
 
 const initialState = {
     url: {},
-    genres:{}
+    genres: {},
+    languages:[]
 
 }
 
@@ -16,9 +17,12 @@ export const homeSlice = createSlice({
         },
         getGenres: (state, action) => {
             state.genres = action.payload
+        },
+        getLanguages: (state, action) => {
+            state.languages = action.payload
         }
     }
 })
 
-export const {getApiConfigurations,getGenres} = homeSlice.actions
+export const {getApiConfigurations,getGenres,getLanguages} = homeSlice.actions
 export default homeSlice.reducer
